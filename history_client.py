@@ -1,7 +1,7 @@
 import os
 import json
 from datetime import datetime
-from redis_client import get_history
+from redis_client import get_last_response
 
 def salvar_historico_json(cliente, prompt, resposta):
     historico_dir = "history"
@@ -21,9 +21,9 @@ def salvar_historico_json(cliente, prompt, resposta):
         json.dump(historico, f, indent=4)
 
 def get_last_history(cliente):
-    historicos = get_history(cliente)
-    if historicos:
-        return historicos[-1]['resposta']
+    last_response = get_last_response(cliente)
+    if last_response:
+        return last_response
 
     # fallback: buscar na pasta ./respostas
     nome_arquivo = f"respostas/{cliente.lower().replace(' ', '_')}.md"
