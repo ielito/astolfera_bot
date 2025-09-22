@@ -1,4 +1,20 @@
 def build_prompt(company_name, web_info, internal_reference, additional_note=""):
+    """Builds a detailed prompt for the Gemini Pro model.
+
+    This function constructs a prompt with a specific structure, including the
+    company's name, web information, internal references, and an optional
+    additional note. The prompt is designed to guide the Gemini Pro model in
+    generating a comprehensive discovery report.
+
+    Args:
+        company_name (str): The name of the company.
+        web_info (str): Information gathered from the web.
+        internal_reference (str): Internal reference documents.
+        additional_note (str): An optional additional note.
+
+    Returns:
+        str: A formatted prompt string.
+    """
     prompt = f"""
 Your name is Astolfo, and your role is to assist me in discovering and researching new potential clients.
 

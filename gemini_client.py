@@ -16,6 +16,18 @@ genai.configure(api_key=api_key)
 model = genai.GenerativeModel("gemini-1.5-flash-latest")
 
 def generate_discovery(texto: str) -> str:
+    """Generates a discovery report using the Gemini Pro model.
+
+    This function takes a text prompt as input, sends it to the Gemini Pro model,
+    and returns the generated text as a string. The generation is configured
+    with specific parameters to control the output's creativity and length.
+
+    Args:
+        texto: The input text prompt for the model.
+
+    Returns:
+        The generated text from the Gemini Pro model.
+    """
     response = model.generate_content(
         texto,
         generation_config=genai.types.GenerationConfig(

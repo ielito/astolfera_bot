@@ -8,6 +8,13 @@ from history_client import salvar_historico_json
 import os
 
 def main():
+    """Main function for the Astolfo Client Discovery Assistant.
+
+    This function guides the user through the client discovery process.
+    It prompts for a client name, searches for public information, builds a
+    prompt for the Gemini model, generates a discovery report, saves the
+    history, and prints the response.
+    """
     print("=== ASTOLFO: CLIENT DISCOVERY ASSISTANT ===")
     cliente = input("🟡 Qual o nome do cliente? ").strip()
 

@@ -72,20 +72,26 @@ Astolfo uses a system prompt + web results + internal guidance to generate struc
 
 ## 🗃 Project Structure
 
-```
-astolfo/
-├── cli.py                  → Main discovery script
-├── cli_tdd.py              → Refine response after a meeting
-├── gemini_client.py        → Gemini API logic
-├── redis_client.py         → Redis store/retrieve helpers
-├── web_search.py           → SerpAPI-based search module
-├── prompts/
-│   └── system_prompt.py    → Static system prompt used for every request
-├── respostas/              → Markdown responses (by client)
-├── history/                → JSON logs of each run
-├── docs/                   → Internal reference PDFs
-├── .env / .gitignore       → Environment & git hygiene
-```
+The project is organized into the following files and directories:
+
+| File/Directory      | Description                                                              |
+| :------------------ | :----------------------------------------------------------------------- |
+| `cli.py`            | The main entry point for the client discovery process.                   |
+| `cli_tdd.py`        | A script for refining an existing discovery report with new information. |
+| `gemini_client.py`  | Handles all interactions with the Gemini Pro API.                        |
+| `history_client.py` | Manages the local JSON history of client interactions.                   |
+| `main.py`           | A utility script for testing the PDF extraction and Gemini integration.  |
+| `pdf_loader.py`     | Extracts text from PDF files using PyMuPDF.                              |
+| `redis_client.py`   | Handles all interactions with the Redis database.                        |
+| `slack_client.py`   | A client for sending messages to a Slack channel.                        |
+| `telegram_bot.py`   | A bot for sending messages to a Telegram chat.                           |
+| `web_search.py`     | Performs web searches using the SerpAPI.                                 |
+| `prompts/`          | Contains the system prompt for the Gemini Pro model.                     |
+| `respostas/`        | Stores the generated discovery reports in Markdown format.               |
+| `history/`          | Stores the JSON logs of each client interaction.                         |
+| `docs/`             | Contains internal reference documents in PDF format.                     |
+| `.gitignore`        | Specifies which files and directories to ignore in Git.                  |
+| `README.md`         | This file, providing an overview of the project.                         |
 
 ---
 

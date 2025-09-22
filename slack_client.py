@@ -6,6 +6,15 @@ import requests
 SLACK_WEBHOOK_URL = os.getenv("SLACK_WEBHOOK_URL") or "https://hooks.slack.com/services/..."
 
 def send_slack_message(text):
+    """Sends a message to a Slack channel using a webhook.
+
+    This function takes a text message, creates a payload, and sends it to the
+    pre-configured Slack webhook URL. It prints a confirmation message if the
+    message is sent successfully, or an error message otherwise.
+
+    Args:
+        text (str): The message to be sent to Slack.
+    """
     payload = {"text": text}
     response = requests.post(SLACK_WEBHOOK_URL, json=payload)
     if response.status_code == 200:
