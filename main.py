@@ -1,3 +1,10 @@
+"""
+This script serves as a simple test utility for the Astolfo project.
+
+It extracts text from two PDF files, combines the text, and then uses the
+Gemini client to generate a discovery report based on the combined text.
+The final report is then printed to the console.
+"""
 from pdf_loader import extract_text_from_pdf
 from gemini_client import generate_discovery
 

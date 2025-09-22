@@ -4,6 +4,13 @@ import os
 from gemini_client import generate_discovery
 
 def main():
+    """Main function for refining an existing client discovery report.
+
+    This function prompts the user for a client name, retrieves the last
+    discovery report for that client, and then asks for new meeting notes.
+    It then sends the previous report and the new notes to the Gemini model
+    to generate a refined report. The new report is then saved and displayed.
+    """
     print("=== ASTOLFO: REFINAR RESPOSTA COM NOVAS INFORMAÇÕES ===")
     cliente = input("🟡 Nome do cliente para refinar resposta: ").strip()
 

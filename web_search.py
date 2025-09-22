@@ -3,6 +3,20 @@ import os
 from serpapi import GoogleSearch
 
 def search_google(query, num_results=8):
+    """Searches Google for a given query using the SerpAPI.
+
+    This function takes a search query and the number of results to return.
+    It then uses the SerpAPI to perform a Google search and returns the
+    results as a formatted string.
+
+    Args:
+        query (str): The search query.
+        num_results (int): The number of results to return.
+
+    Returns:
+        str: A formatted string containing the search results, or a message if no
+        results are found.
+    """
     api_key = os.getenv("SERPAPI_API_KEY")
     if not api_key:
         raise Exception("Missing SERPAPI_API_KEY environment variable.")
@@ -30,6 +44,17 @@ def search_google(query, num_results=8):
     return output
 
 def search_company(company_name):
+    """Performs a comprehensive search for a given company.
+
+    This function performs two searches: one focused on the company and another
+    on its industry. It then combines the results into a single string.
+
+    Args:
+        company_name (str): The name of the company to search for.
+
+    Returns:
+        str: A formatted string containing the combined search results.
+    """
     # 🔍 Busca FOCADA na empresa
     company_query = (
         f"{company_name} transformação digital OR ERP OR SAP OR inovação OR tecnologia "
