@@ -22,13 +22,13 @@ def salvar_historico_json(cliente, prompt, resposta):
 
 def get_last_history(cliente):
     historicos = get_history(cliente)
-    if historicos:
+
+    # Verifica se é uma lista e se tem itens
+    if isinstance(historicos, list) and historicos:
         return historicos[-1]['resposta']
-
-    # fallback: buscar na pasta ./respostas
-    nome_arquivo = f"respostas/{cliente.lower().replace(' ', '_')}.md"
-    if os.path.exists(nome_arquivo):
-        with open(nome_arquivo, "r") as f:
-            return f.read()
-
+    
+    # Se veio um dict direto (ex: só um histórico), acessa direto
+    if isinstance(historicos, dict) and 'resposta' in historicos:
+        return historicos['resposta']
+    
     return None
