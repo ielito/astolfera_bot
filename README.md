@@ -105,22 +105,6 @@ astolfo/
 
 ---
 
-## ☁️ How to Push to GitHub
-
-1. Create your GitHub repo: `https://github.com/usuario/astolfo`
-2. In terminal:
-
-```bash
-git init
-git remote add origin https://github.com/usuario/astolfo.git
-git add .
-git commit -m "Initial version of Astolfo (v1)"
-git branch -M main
-git push -u origin main
-```
-
----
-
 ## ✨ Author
 
 Built with ❤️ by Rafael Ielo  
