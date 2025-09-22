@@ -3,27 +3,9 @@ from gemini_client import generate_discovery
 from web_search import search_company
 from prompts.system_prompt import build_prompt
 from redis_client import save_history
+from history_client import salvar_historico_json
 
-import json
 import os
-from datetime import datetime
-
-def salvar_historico_json(cliente, prompt, resposta):
-    historico_dir = "history"
-    os.makedirs(historico_dir, exist_ok=True)
-
-    now = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    filename = f"{historico_dir}/{cliente}_{now}.json"
-
-    historico = {
-        "cliente": cliente,
-        "data_hora": now,
-        "prompt": prompt,
-        "resposta": resposta
-    }
-
-    with open(filename, "w") as f:
-        json.dump(historico, f, indent=4)
 
 def main():
     print("=== ASTOLFO: CLIENT DISCOVERY ASSISTANT ===")
